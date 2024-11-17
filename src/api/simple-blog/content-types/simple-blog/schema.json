@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "simple_blogs",
+  "info": {
+    "singularName": "simple-blog",
+    "pluralName": "simple-blogs",
+    "displayName": "SimpleBlogs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.section"
+    },
+    "Conclusion": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "simple_blogs"
+    },
+    "Tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tags"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title"
+    }
+  }
+}

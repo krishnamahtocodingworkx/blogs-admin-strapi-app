@@ -18,14 +18,11 @@
     "slug": {
       "type": "uid"
     },
-    "articles": {
+    "simple_blogs": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::article.article",
+      "target": "api::simple-blog.simple-blog",
       "mappedBy": "category"
-    },
-    "description": {
-      "type": "text"
     }
   }
 }
