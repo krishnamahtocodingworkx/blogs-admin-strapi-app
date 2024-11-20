@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_my_categories",
+  "info": {
+    "displayName": "MyCategory",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "BlogsCategory": {
+      "type": "enumeration",
+      "enum": [
+        "App Development"
+      ]
+    }
+  }
+}

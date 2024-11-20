@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedKeypoints extends Struct.ComponentSchema {
+  collectionName: 'components_shared_keypoints';
+  info: {
+    displayName: 'Keypoints';
+    icon: 'star';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -8,6 +20,17 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface SharedMyCategory extends Struct.ComponentSchema {
+  collectionName: 'components_shared_my_categories';
+  info: {
+    displayName: 'MyCategory';
+    icon: 'hashtag';
+  };
+  attributes: {
+    BlogsCategory: Schema.Attribute.Enumeration<['App Development']>;
   };
 }
 
@@ -32,6 +55,20 @@ export interface SharedRichText extends Struct.ComponentSchema {
   };
   attributes: {
     body: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sections';
+  info: {
+    displayName: 'Section';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    Keypoints: Schema.Attribute.Component<'shared.keypoints', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -62,14 +99,33 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTags extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tags';
+  info: {
+    displayName: 'Tags';
+    icon: 'hashtag';
+  };
+  attributes: {
+    Tag: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 30;
+        minLength: 2;
+      }>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.keypoints': SharedKeypoints;
       'shared.media': SharedMedia;
+      'shared.my-category': SharedMyCategory;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
+      'shared.section': SharedSection;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.tags': SharedTags;
     }
   }
 }
