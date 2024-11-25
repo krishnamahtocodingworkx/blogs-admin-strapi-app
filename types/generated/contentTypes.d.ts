@@ -560,6 +560,7 @@ export interface ApiSimpleBlogSimpleBlog extends Struct.CollectionTypeSchema {
       'api::simple-blog.simple-blog'
     > &
       Schema.Attribute.Private;
+    Parts: Schema.Attribute.Component<'shared.parts', true>;
     publishedAt: Schema.Attribute.DateTime;
     Sections: Schema.Attribute.Component<'shared.section', true>;
     slug: Schema.Attribute.UID<'Title'>;

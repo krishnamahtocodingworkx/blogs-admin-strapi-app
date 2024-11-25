@@ -34,6 +34,19 @@ export interface SharedMyCategory extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedParts extends Struct.ComponentSchema {
+  collectionName: 'components_shared_parts';
+  info: {
+    displayName: 'Parts';
+    icon: 'discuss';
+  };
+  attributes: {
+    contents: Schema.Attribute.RichText;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -61,10 +74,12 @@ export interface SharedRichText extends Struct.ComponentSchema {
 export interface SharedSection extends Struct.ComponentSchema {
   collectionName: 'components_shared_sections';
   info: {
+    description: '';
     displayName: 'Section';
     icon: 'bulletList';
   };
   attributes: {
+    content: Schema.Attribute.RichText;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     Keypoints: Schema.Attribute.Component<'shared.keypoints', true>;
@@ -120,6 +135,7 @@ declare module '@strapi/strapi' {
       'shared.keypoints': SharedKeypoints;
       'shared.media': SharedMedia;
       'shared.my-category': SharedMyCategory;
+      'shared.parts': SharedParts;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.section': SharedSection;
