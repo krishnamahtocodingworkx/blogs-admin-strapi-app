@@ -10,9 +10,6 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "Keypoints": {
       "type": "component",
       "repeatable": true,
@@ -27,6 +24,9 @@
       ]
     },
     "content": {
+      "type": "richtext"
+    },
+    "description": {
       "type": "richtext"
     }
   }

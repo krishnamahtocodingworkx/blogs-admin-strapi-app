@@ -37,12 +37,13 @@ export interface SharedMyCategory extends Struct.ComponentSchema {
 export interface SharedParts extends Struct.ComponentSchema {
   collectionName: 'components_shared_parts';
   info: {
+    description: '';
     displayName: 'Parts';
     icon: 'discuss';
   };
   attributes: {
     contents: Schema.Attribute.RichText;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
   };
 }
@@ -80,7 +81,7 @@ export interface SharedSection extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.RichText;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText;
     image: Schema.Attribute.Media<'images'>;
     Keypoints: Schema.Attribute.Component<'shared.keypoints', true>;
     title: Schema.Attribute.String;

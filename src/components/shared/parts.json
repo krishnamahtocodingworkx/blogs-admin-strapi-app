@@ -2,17 +2,18 @@
   "collectionName": "components_shared_parts",
   "info": {
     "displayName": "Parts",
-    "icon": "discuss"
+    "icon": "discuss",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "contents": {
+      "type": "richtext"
+    },
+    "description": {
       "type": "richtext"
     }
   }
